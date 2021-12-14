@@ -1,0 +1,106 @@
+<!--
+    Name: Adam Hemmann
+    Pawprint: ashgx6
+    Date: 10-5-2021
+    Challenge: To-Do List F21
+-->
+
+<!--
+    References:
+        1. https://stackoverflow.com/questions/926319/jquery-remove-table-row-tr-by-clicking-a-td
+        2. https://codepen.io/beeeees/pen/tsBwe
+        3. https://stackoverflow.com/questions/15195449/html5-type-range-showing-label
+        4. https://stackoverflow.com/questions/7014385/javascript-jquery-to-change-class-onclick/7014413
+-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+              rel="stylesheet" 
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+              crossorigin="anonymous">
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" 
+              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="css/toDoList.css">
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+                crossorigin="anonymous"></script>
+        <script src="js/toDoList.js"></script>
+		<title>To-Do List</title>
+	</head>
+	<body class="bodyLightMode">
+        <div class="container-fluid"> <!-- Top container -->
+            <div class="row">
+                <div class="col-sm-11">
+                    <a href="../Projects.html" onclick=validFormData>Back to Projects Page</a>
+                </div>
+                <div class="col-sm-1 text-end">
+                    <i title="Click here to between dark mode and light mode!" class="bi bi-brightness-high-fill" id="darkMode"></i>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row text-center my-4">
+                <h2 id="listTitle">To-Do List</h2>
+            </div>
+        </div>
+        <div class="container py-3 mb-3 haveABorder"> <!-- Form container -->
+            <div class="row mb-3">
+                <span class="col text-center" id="formTitle">Add a task using the form below:</span>
+            </div>
+            <form>
+                <div class="row">
+                    <div class="col text-center">
+                        <span class="mx-5"><input type="text" id="taskName" name="taskName" placeholder="Task name:"></span>
+                        <span class="mx-5"><select id="taskCategory" name="takeCategory">
+                            <option value="none" selected disabled>Select Category</option>
+                            <option value="ph1">Homework</option>
+                            <option value="ph2">Project</option>
+                            <option value="ph3">Quiz</option>
+                            <option value="ph4">Exam</option>
+                        </select></span>
+                        <span class="mx-5"><label for="taskPriority">Priority:</label>
+                        <input type="range" min="0" max="6" id="taskPriority" name="taskPriority">
+                        <span id="priorityText">3</span></span>
+                        <span class="mx-5"><label for="taskDueDate">Due date:</label>
+                        <input type="date" id="taskDueDate" name="taskDueDate"></span>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col text-center">
+                        <span class="mx-5"><input type="button" value="Add to List" id="addTask"></span>
+                        <span class="mx-5"><input type="reset" value="Reset form" id="resetForm"></span>
+                        <span class="mx-5"><input type="button" value="Clear the list" id="clearTable"></span>
+                        <span class="mx-5"><input type="button" value="Load previous session" id="loadLocalStorage"></span>
+                        <span class="mx-5"><button type="button" class="btn btn-danger" id="clearStorage">CLEAR LOCAL STORAGE</button></span> <!--pretty much just here for testing purposes, should usually be commented out-->
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="container-fluid haveABorder" id="tableContainer"> <!-- Table container -->
+            <div class="row">
+                <div class="col">
+                    <table class="table table-striped" id="toDoTable">
+                        <thead>
+                            <tr>
+                                <th>Task Name</th>
+                                <th>Category</th>
+                                <th>Priority</th>
+                                <th>Due Date</th>
+                                <th>Mark as Complete</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+	</body>
+</html>

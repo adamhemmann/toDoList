@@ -1,0 +1,37 @@
+.bodyLightMode {
+  background-color: white;
+}
+.bodyDarkMode {
+  color: white;
+  background-color: rgb(49, 49, 49);
+}
+.iconDarkMode {
+  color: white;
+}
+.haveABorder {
+  border: 1px solid black;
+}
+#tableContainer {
+  width: 1400px;
+}
+th,
+td {
+  text-align: center;
+}
+#tableContainer {
+  height: 500px;
+  overflow: auto;
+  padding: 0;
+}
+#formTitle {
+  text-decoration: underline;
+  font-weight: bold;
+}
+#toDoCardImage:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-image: url(img\best-to-list-apps-featured-image.png);
+}
